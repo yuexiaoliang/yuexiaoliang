@@ -1,7 +1,7 @@
 <h2> Hey there! I'm WangScaler. <img src="https://github.com/souvikguria98/souvikguria98/blob/master/Hi.gif" width="25"></h2>
 
 <p align = "center">
-  <img src = "https://github-readme-stats.vercel.app/api?username=yuexiaoliang&count_private=true&show_icons=true&theme=tokyonight&line_height=37">
+  <img src = "https://github-readme-stats.vercel.app/api?username=yuexiaoliang&count_private=true&show_icons=true&theme=tokyonight&line_height=40">
   <img src = "https://github-readme-stats.vercel.app/api/top-langs/?username=yuexiaoliang&theme=tokyonight">
 </p>
 
