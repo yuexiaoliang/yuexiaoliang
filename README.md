@@ -13,7 +13,3 @@
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=yuexiaoliang&repo=vue3-init&theme=tokyonight" />
 </a>
 </p>
-<p align = "center">
- <img src="https://activity-graph.herokuapp.com/graph?username=yuexiaoliang&theme=redical">
-</p>
-
