@@ -3,15 +3,11 @@ const successEl = document.querySelector('.success');
 const failEl = document.querySelector('.fail');
 const loginEl = document.querySelector('.login');
 const logoutEl = document.querySelector('.logout');
-const openShowEl = document.querySelector('.open-show');
-const openHideEl = document.querySelector('.open-hide');
 
-logoutEl.addEventListener('click', logout);
-loginEl.addEventListener('click', login);
-openHideEl.addEventListener('click', openPageHideNav);
-openShowEl.addEventListener('click', openPageShowNav);
+logoutEl?.addEventListener('click', logout);
+loginEl?.addEventListener('click', login);
 
-setElementHTMLByData(locationEl, location);
+locationEl && setElementHTMLByData(locationEl, location);
 setLoginStatus(false);
 
 function login() {
@@ -22,11 +18,11 @@ function login() {
         return;
       }
       setLoginStatus(true);
-      setElementHTMLByData(successEl, data);
+      successEl && setElementHTMLByData(successEl, data);
     },
     fail: function (data) {
       setLoginStatus(false);
-      setElementHTMLByData(failEl, data);
+      failEl && setElementHTMLByData(failEl, data);
     }
   });
 }
@@ -34,11 +30,11 @@ function login() {
 function appLogin() {
   lightAppJssdk.user.loginapp({
     success: function (data) {
-      setElementHTMLByData(successEl, data);
+      successEl && setElementHTMLByData(successEl, data);
       setLoginStatus(true);
     },
     fail: function (data) {
-      setElementHTMLByData(failEl, data);
+      failEl && setElementHTMLByData(failEl, data);
       setLoginStatus(false);
     }
   });
@@ -47,7 +43,7 @@ function appLogin() {
 function logout() {
   lightAppJssdk.user.logout({
     success: function (data) {
-      setElementHTMLByData(successEl, '未登录');
+      successEl && setElementHTMLByData(successEl, '未登录');
       setLoginStatus(false);
       alert('logout success: ' + data);
     },
@@ -72,7 +68,18 @@ function openPageShowNav() {
 
 function openPageHideNav() {
   lightAppJssdk.navigation.hide({
-    url: 'https://blog.yuexiaoliang.com/test.html',
+    url: '/test.html',
+    success: function (data) {
+      //成功回调
+    },
+    fail: function (data) {
+      //错误返回
+    }
+  });
+}
+
+function closePage() {
+  lightAppJssdk.navigation.close({
     success: function (data) {
       //成功回调
     },
@@ -106,6 +113,10 @@ function setElementHTMLByData(el, data) {
 }
 
 function setLoginStatus(bool) {
-  loginEl.style.display = !bool ? 'block' : 'none';
-  logoutEl.style.display = bool ? 'block' : 'none';
+  if (loginEl) {
+    loginEl.style.display = !bool ? 'block' : 'none';
+  }
+  if (logoutEl) {
+    logoutEl.style.display = bool ? 'block' : 'none';
+  }
 }
