@@ -14,6 +14,7 @@ lightAppJssdk.user.getTicket({
 });
 
 function showObj(el, obj) {
+  obj.typeof = typeof obj;
   el.style.display = 'block';
   el.innerHTML = JSON.stringify(obj, null, 2);
 }
