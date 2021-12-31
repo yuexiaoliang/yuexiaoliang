@@ -13,12 +13,25 @@ lightAppJssdk.user.getTicket({
   }
 });
 
-function showObj(el, obj) {
+function showObj(el, data) {
   const result = {
-    typeof: typeof obj,
-    data: obj
+    type: typeof data
   };
-  obj.typeof = typeof obj;
+
+  if (typeof data === 'string') {
+    let _data;
+    try {
+      _data = JSON.parse(data);
+    } catch (error) {
+      _data = data;
+    }
+    result.data = _data;
+  }
+
+  if (typeof data === 'object') {
+    result.data = data;
+  }
+
   el.style.display = 'block';
   el.innerHTML = JSON.stringify(result, null, 2);
 }
