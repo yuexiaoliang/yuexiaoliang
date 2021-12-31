@@ -8,8 +8,11 @@
 </head>
 <body>
   <h1>登录-岳晓亮博客</h1>
+  <div class="location"></div>
   <script>
     console.log(window.location)
+    const location = document.querySelector('.location')
+    location.innerHTML = JSON.stringify(window.location)
     
   </script>
 </body>
