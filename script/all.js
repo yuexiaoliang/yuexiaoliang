@@ -15,9 +15,11 @@ function login() {
         appLogin();
         return;
       }
+      logoutEl.style.display = 'block';
       showObj(successEl, data);
     },
     fail: function (data) {
+      logoutEl.style.display = 'none';
       showObj(failEl, data);
     }
   });
@@ -26,10 +28,13 @@ function login() {
 function logout() {
   lightAppJssdk.user.logout({
     success: function (data) {
-      alert(data);
+      showObj(successEl, '未登录');
+      logoutEl.style.display = 'none';
+      alert('logout success: ' + data);
     },
     fail: function (data) {
-      alert(data);
+      logoutEl.style.display = 'block';
+      alert('logout fail: ' + data);
     }
   });
 }
@@ -38,9 +43,11 @@ function appLogin() {
   lightAppJssdk.user.loginapp({
     success: function (data) {
       showObj(successEl, data);
+      logoutEl.style.display = 'block';
     },
     fail: function (data) {
       showObj(failEl, data);
+      logoutEl.style.display = 'none';
     }
   });
 }
