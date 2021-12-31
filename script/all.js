@@ -4,9 +4,11 @@ const failEl = document.querySelector('.fail');
 const loginEl = document.querySelector('.login');
 const logoutEl = document.querySelector('.logout');
 
-showObj(locationEl, location);
 logoutEl.addEventListener('click', logout);
 loginEl.addEventListener('click', login);
+
+setElementHTMLByData(locationEl, location);
+setLoginStatus(false);
 
 function login() {
   lightAppJssdk.user.getTicket({
@@ -15,26 +17,12 @@ function login() {
         appLogin();
         return;
       }
-      logoutEl.style.display = 'block';
-      showObj(successEl, data);
+      setLoginStatus(true);
+      setElementHTMLByData(successEl, data);
     },
     fail: function (data) {
-      logoutEl.style.display = 'none';
-      showObj(failEl, data);
-    }
-  });
-}
-
-function logout() {
-  lightAppJssdk.user.logout({
-    success: function (data) {
-      showObj(successEl, '未登录');
-      logoutEl.style.display = 'none';
-      alert('logout success: ' + data);
-    },
-    fail: function (data) {
-      logoutEl.style.display = 'block';
-      alert('logout fail: ' + data);
+      setLoginStatus(false);
+      setElementHTMLByData(failEl, data);
     }
   });
 }
@@ -42,17 +30,31 @@ function logout() {
 function appLogin() {
   lightAppJssdk.user.loginapp({
     success: function (data) {
-      showObj(successEl, data);
-      logoutEl.style.display = 'block';
+      setElementHTMLByData(successEl, data);
+      setLoginStatus(true);
     },
     fail: function (data) {
-      showObj(failEl, data);
-      logoutEl.style.display = 'none';
+      setElementHTMLByData(failEl, data);
+      setLoginStatus(false);
     }
   });
 }
 
-function showObj(el, data) {
+function logout() {
+  lightAppJssdk.user.logout({
+    success: function (data) {
+      setElementHTMLByData(successEl, '未登录');
+      setLoginStatus(false);
+      alert('logout success: ' + data);
+    },
+    fail: function (data) {
+      setLoginStatus(true);
+      alert('logout fail: ' + data);
+    }
+  });
+}
+
+function setElementHTMLByData(el, data) {
   const result = {
     type: typeof data
   };
@@ -73,4 +75,9 @@ function showObj(el, data) {
 
   el.style.display = 'block';
   el.innerHTML = JSON.stringify(result, null, 2);
+}
+
+function setLoginStatus(bool) {
+  loginEl.style.display = !bool ? 'block' : 'none';
+  logoutEl.style.display = bool ? 'block' : 'none';
 }

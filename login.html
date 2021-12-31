@@ -35,20 +35,32 @@
         border-bottom: 2px dashed blue;
       }
 
-      .logout {
+      .buttons {
+        display: flex;
+        justify-content: center;
+        margin: 0 -10px;
+      }
+
+      .buttons .button {
         display: none;
+        flex: 1;
+        margin: 0 10px;
+        height: 40px;
       }
     </style>
   </head>
   <body>
     <h1>登录-岳晓亮博客</h1>
-    <pre class="location sound-code" style="--title:'Location'"></pre>
+    <pre class="location sound-code" style="--title: 'Location'"></pre>
     <div class="divide"></div>
-    <pre class="success sound-code" style="--title:'Get Ticket Success'"></pre>
+    <pre class="success sound-code" style="--title: 'Get Ticket Success'"></pre>
     <div class="divide"></div>
-    <pre class="fail sound-code" style="--title:'Get Ticket Fail'"></pre>
-    <button class="login">一键登录</button>
-    <button class="logout">退出登录</button>
+    <pre class="fail sound-code" style="--title: 'Get Ticket Fail'"></pre>
+
+    <div class="buttons">
+      <button class="login button">一键登录</button>
+      <button class="logout button">退出登录</button>
+    </div>
 
     <script>
       const script = document.createElement('script');
