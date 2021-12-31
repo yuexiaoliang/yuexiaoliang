@@ -6,12 +6,27 @@ showObj(locationEl, location);
 
 lightAppJssdk.user.getTicket({
   success: function (data) {
+    if (data === '未登录') {
+      appLogin();
+      return;
+    }
     showObj(successEl, data);
   },
   fail: function (data) {
     showObj(failEl, data);
   }
 });
+
+function appLogin() {
+  lightAppJssdk.user.loginapp({
+    success: function (data) {
+      showObj(successEl, data);
+    },
+    fail: function (data) {
+      showObj(failEl, data);
+    }
+  });
+}
 
 function showObj(el, data) {
   const result = {
