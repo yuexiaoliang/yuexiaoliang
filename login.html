@@ -11,8 +11,8 @@
   <div class="location"></div>
   <script>
     console.log(window.location)
-    const location = document.querySelector('.location')
-    location.innerHTML = JSON.stringify(window.location)
+    const locationEl = document.querySelector('.location')
+    locationEl.innerHTML = JSON.stringify(window.location, null, 4)
     
   </script>
 </body>
