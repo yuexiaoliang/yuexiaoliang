@@ -60,7 +60,7 @@ function logout() {
 
 function openPageShowNav() {
   lightAppJssdk.navigation.show({
-    url: '/test.html',
+    url: 'https://blog.yuexiaoliang.com/test.html',
     success: function (data) {
       //成功回调
     },
@@ -72,7 +72,7 @@ function openPageShowNav() {
 
 function openPageHideNav() {
   lightAppJssdk.navigation.hide({
-    url: '/test.html',
+    url: 'https://blog.yuexiaoliang.com/test.html',
     success: function (data) {
       //成功回调
     },
