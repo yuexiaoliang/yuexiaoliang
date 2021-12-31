@@ -4,9 +4,6 @@ const failEl = document.querySelector('.fail');
 const loginEl = document.querySelector('.login');
 const logoutEl = document.querySelector('.logout');
 
-logoutEl?.addEventListener('click', logout);
-loginEl?.addEventListener('click', login);
-
 locationEl && setElementHTMLByData(locationEl, location);
 setLoginStatus(false);
 
