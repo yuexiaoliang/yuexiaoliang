@@ -3,9 +3,13 @@ const successEl = document.querySelector('.success');
 const failEl = document.querySelector('.fail');
 const loginEl = document.querySelector('.login');
 const logoutEl = document.querySelector('.logout');
+const openShowEl = document.querySelector('.open-show');
+const openHideEl = document.querySelector('.open-hide');
 
 logoutEl.addEventListener('click', logout);
 loginEl.addEventListener('click', login);
+openHideEl.addEventListener('click', openPageHideNav);
+openShowEl.addEventListener('click', openPageShowNav);
 
 setElementHTMLByData(locationEl, location);
 setLoginStatus(false);
@@ -50,6 +54,30 @@ function logout() {
     fail: function (data) {
       setLoginStatus(true);
       alert('logout fail: ' + data);
+    }
+  });
+}
+
+function openPageShowNav() {
+  lightAppJssdk.navigation.show({
+    url: '/test.html',
+    success: function (data) {
+      //成功回调
+    },
+    fail: function (data) {
+      //错误返回
+    }
+  });
+}
+
+function openPageHideNav() {
+  lightAppJssdk.navigation.hide({
+    url: '/test.html',
+    success: function (data) {
+      //成功回调
+    },
+    fail: function (data) {
+      //错误返回
     }
   });
 }
