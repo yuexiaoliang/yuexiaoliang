@@ -6,8 +6,8 @@
 </p>
 
 <p align = "center">
-<a href="https://github.com/yuexiaoliang/knowledge-sharing">
-  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=yuexiaoliang&repo=knowledge-sharing&theme=tokyonight" />
+<a href="https://github.com/yuexiaoliang/vite-plugin-import-rewriter">
+  <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=yuexiaoliang&repo=vite-plugin-import-rewriter&theme=tokyonight" />
 </a>
 <a href="https://github.com/yuexiaoliang/docs">
   <img align="center" src="https://github-readme-stats.vercel.app/api/pin/?username=yuexiaoliang&repo=docs&theme=tokyonight" />
