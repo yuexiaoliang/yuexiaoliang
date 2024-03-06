@@ -22,33 +22,6 @@ a {
   text-decoration: none;
 }
 
-.content {
-  margin-top: -150px;
-}
-
-.nav {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  margin-bottom: 10px;
-
-  a {
-    margin: 0 15px;
-  }
-}
-
-.footer {
-  position: fixed;
-  bottom: 20px;
-  width: 100%;
-  text-align: center;
-
-  a {
-    font-size: 12px;
-    color: #555;
-  }
-}
-
 .hover {
   position: relative;
 }
@@ -59,7 +32,7 @@ a {
   top: 100%;
   margin-top: 15px;
   transform: translateX(-50%);
-  transition: all .3s;
+  transition: all 0.3s;
   visibility: hidden;
   opacity: 0;
 }
@@ -69,14 +42,77 @@ a {
   opacity: 1;
 }
 
-.qrcode {
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 10px;
-  font-size: 16px;
-  background-color: #fff;
-  color: #333;
-  border-radius: 5px;
-  overflow: hidden;
+  margin-top: -150px;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto 20px;
+
+  img {
+    width: 85px;
+    border-radius: 50%;
+    border: 5px solid rgba($color: #fff, $alpha: 0.2);
+  }
+
+  .name {
+    margin-top: 5px;
+    font-size: 16px;
+  }
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+
+  &-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  &-content {
+    a {
+      margin: 0 15px;
+    }
+  }
+
+  .qrcode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+
+    img {
+      display: block;
+    }
+
+    .text {
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+
+  a {
+    margin: 0 5px;
+    font-size: 12px;
+    color: #555;
+  }
 }
