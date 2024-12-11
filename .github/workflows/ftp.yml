@@ -1,0 +1,21 @@
+on:
+  push:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: ftp-action
+        uses: sebastianpopp/ftp-action@v2.0.0
+        with:
+          host: ${{secrets.FTP_HOST}}
+          user: ${{secrets.FTP_USERNAME}}
+          password: ${{secrets.FTP_PASSWORD}}
+          forceSsl: true
+          localDir: .
+          remoteDir: /www/wwwroot/wuxian.space
