@@ -18,4 +18,5 @@ jobs:
           user: ${{secrets.FTP_USERNAME}}
           password: ${{secrets.FTP_PASSWORD}}
           localDir: .
-          remoteDir: /www/wwwroot/wuxian.space
+          remoteDir: .
+          options: "--delete"
